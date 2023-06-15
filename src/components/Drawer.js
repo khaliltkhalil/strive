@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "./Navbar";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, NavLink } from "react-router-dom";
 
 function Drawer() {
   return (
@@ -45,10 +45,15 @@ function Drawer() {
           {/* Sidebar content here */}
 
           <li>
-            <a>Sidebar Item 1</a>
+            <NavLink exact to="/">
+              Home
+            </NavLink>
           </li>
           <li>
-            <a>Sidebar Item 2</a>
+            <NavLink to="/workouts">Workouts</NavLink>
+          </li>
+          <li>
+            <NavLink to="/profile">Profile</NavLink>
           </li>
         </ul>
       </div>
