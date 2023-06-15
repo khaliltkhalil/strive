@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "./Navbar";
+import { Switch, Route } from "react-router-dom";
 
 function Drawer() {
   return (
@@ -26,8 +27,17 @@ function Drawer() {
       <div className="drawer-content flex flex-col items-center ">
         {/* Page content here */}
         <Navbar />
-        <h1>content</h1>
-        <h1>content</h1>
+        <Switch>
+          <Route exact path="/">
+            <h1>Home</h1>
+          </Route>
+          <Route exact path="/profile">
+            <h1>Profile</h1>
+          </Route>
+          <Route exact path="/workouts">
+            <h1>Workouts</h1>
+          </Route>
+        </Switch>
       </div>
       <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
