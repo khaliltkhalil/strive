@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "./Navbar";
 import { Switch, Route, NavLink } from "react-router-dom";
+import Home from "./Home";
 
 function Drawer() {
   return (
@@ -29,7 +30,7 @@ function Drawer() {
         <Navbar />
         <Switch>
           <Route exact path="/">
-            <h1>Home</h1>
+            <Home />
           </Route>
           <Route exact path="/profile">
             <h1>Profile</h1>
