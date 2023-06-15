@@ -1,4 +1,5 @@
 import React from "react";
+import Navbar from "./Navbar";
 
 function Drawer() {
   return (
@@ -22,8 +23,10 @@ function Drawer() {
           ></path>
         </svg>
       </label>
-      <div className="drawer-content flex flex-col items-center justify-center">
+      <div className="drawer-content flex flex-col items-center ">
         {/* Page content here */}
+        <Navbar />
+        <h1>content</h1>
         <h1>content</h1>
       </div>
       <div className="drawer-side">
