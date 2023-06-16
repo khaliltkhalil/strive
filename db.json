@@ -40,7 +40,12 @@
             {
                 "weight": 110,
                 "reps": 8
-            }],
+            },
+            {
+                "weight": 100,
+                "reps": 8
+            }
+        ],
         "workoutId": 1
         },
         {
