@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AppContext } from "../context/appContext";
 import Workout from "./Workout";
+import Filter from "./Filter";
 function Workouts() {
   const [workouts, setWorkouts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -24,7 +25,10 @@ function Workouts() {
   }
 
   return (
-    <div className="flex flex-wrap gap-2 w-full p-5">{renderedWorkouts}</div>
+    <div>
+      <Filter />
+      <div className="flex flex-wrap gap-2 w-full p-5">{renderedWorkouts}</div>
+    </div>
   );
 }
 
