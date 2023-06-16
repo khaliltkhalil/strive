@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Workout({ workout }) {
   return (
@@ -11,7 +12,9 @@ function Workout({ workout }) {
           ))}
         </ul>
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">View</button>
+          <Link className="btn btn-primary" to={`/workouts/${workout.id}`}>
+            View
+          </Link>
         </div>
       </div>
     </div>

@@ -27,7 +27,7 @@ function Workouts() {
   return (
     <div>
       <Filter />
-      <div className="flex flex-wrap gap-2 w-full p-5">{renderedWorkouts}</div>
+      <div className="flex flex-wrap gap-2 w-full">{renderedWorkouts}</div>
     </div>
   );
 }
