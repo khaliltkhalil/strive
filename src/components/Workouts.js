@@ -18,11 +18,14 @@ function Workouts() {
   const renderedWorkouts = workouts.map((workout) => (
     <Workout key={workout.id} />
   ));
+
   if (isLoading) {
     return <div>Loading Workouts...</div>;
   }
 
-  return <div>{renderedWorkouts}</div>;
+  return (
+    <div className="flex flex-wrap gap-2 w-full p-5">{renderedWorkouts}</div>
+  );
 }
 
 export default Workouts;
