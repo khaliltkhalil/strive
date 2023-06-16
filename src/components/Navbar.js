@@ -1,17 +1,14 @@
 import React from "react";
-
+import { GrAdd } from "react-icons/gr";
 function Navbar() {
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1"></div>
       <div className="flex-none gap-2">
-        <div className="form-control">
-          <input
-            type="text"
-            placeholder="Search"
-            className="input input-bordered w-24 md:w-auto"
-          />
-        </div>
+        <button className="btn btn-circle">
+          <GrAdd className="text-lg" />
+        </button>
+
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full">
