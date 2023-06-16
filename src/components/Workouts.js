@@ -16,7 +16,7 @@ function Workouts() {
   }, []);
 
   const renderedWorkouts = workouts.map((workout) => (
-    <Workout key={workout.id} />
+    <Workout key={workout.id} workout={workout} />
   ));
 
   if (isLoading) {

@@ -2,13 +2,13 @@
     "workouts": [
         {
             "id": 1,
-            "date": "",
-            "muscles": ["chest", "shoulder" ]
+            "date": "Tuesday, Jan 13, 2023",
+            "muscles": ["Chest", "Shoulder" ]
         },
         {
             "id": 2,
-            "date": "",
-            "muscles": ["back", "arms" ]
+            "date": "Tuesday, Jan 13, 2023",
+            "muscles": ["Back", "Arms" ]
         }
         
 
