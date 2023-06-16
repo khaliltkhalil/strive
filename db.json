@@ -16,7 +16,7 @@
     "exercises": [
         {
         "id": 1,
-        "name": "bench press",
+        "name": "Bench Press",
         "sets" :[
             {
                 "weight": 150,
@@ -45,7 +45,7 @@
         },
         {
         "id": 3,
-        "name": "pull ups",
+        "name": "Pull Ups",
         "sets": [
             {
             "weight": 0,
