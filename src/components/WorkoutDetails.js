@@ -17,7 +17,7 @@ function WorkoutDetails() {
   }, []);
 
   const renderedExercises = exercises.map((exercise) => (
-    <Exercise key={exercise.id} workout={exercise} />
+    <Exercise key={exercise.id} exercise={exercise} />
   ));
 
   if (isLoading) {
