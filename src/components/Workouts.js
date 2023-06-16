@@ -6,13 +6,21 @@ function Workouts() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setIsLoading(true);
     fetch("http://localhost:3000/workouts")
       .then((res) => res.json())
-      .then(setWorkouts);
+      .then((data) => {
+        setWorkouts(data);
+        setIsLoading(false);
+      });
   }, []);
+
   const renderedWorkouts = workouts.map((workout) => (
     <Workout key={workout.id} />
   ));
+  if (isLoading) {
+    return <div>Loading Workouts...</div>;
+  }
 
   return <div>{renderedWorkouts}</div>;
 }
