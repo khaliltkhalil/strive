@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./Navbar";
 import { Switch, Route, NavLink } from "react-router-dom";
 import Home from "./Home";
+import Workouts from "./Workouts";
 
 function Drawer() {
   return (
@@ -36,7 +37,7 @@ function Drawer() {
             <h1>Profile</h1>
           </Route>
           <Route exact path="/workouts">
-            <h1>Workouts</h1>
+            <Workouts />
           </Route>
         </Switch>
       </div>

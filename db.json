@@ -1,0 +1,40 @@
+{
+    "workouts": [
+        {
+            "id": 1,
+            "date": "",
+            "muscles": ["chest", "shoulder" ]
+        },
+        {
+            "id": 2,
+            "date": "",
+            "muscles": ["back", "arms" ]
+        }
+        
+
+    ],
+    "exercises": [
+        {
+        "id": 1,
+        "name": "bench press",
+        "weights": 150,
+        "reps": 4,
+        "workoutId": 1
+        },
+        {
+        "id": 2,
+        "name": "bench press",
+        "weights": 150,
+        "reps": 4,
+        "workoutId": 1
+        },
+        {
+        "id": 3,
+        "name": "pull ups",
+        "weights": 0,
+        "reps": 4,
+        "workoutId": 2
+        }
+    ],
+    "exercisesTypes": ["bench press", "squat"]
+}
