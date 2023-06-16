@@ -4,6 +4,7 @@ import { Switch, Route, NavLink } from "react-router-dom";
 import Home from "./Home";
 import Workouts from "./Workouts";
 import AddWorkout from "./AddWorkout";
+import WorkoutDetails from "./WorkoutDetails";
 
 function Drawer() {
   return (
@@ -41,7 +42,7 @@ function Drawer() {
             <Workouts />
           </Route>
           <Route exact path="/workouts/:id">
-            <AddWorkout />
+            <WorkoutDetails />
           </Route>
         </Switch>
       </div>
