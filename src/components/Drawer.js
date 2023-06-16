@@ -26,7 +26,7 @@ function Drawer() {
           ></path>
         </svg>
       </label>
-      <div className="drawer-content flex flex-col items-center ">
+      <div className="drawer-content flex flex-col ">
         {/* Page content here */}
         <Navbar />
         <Switch>
