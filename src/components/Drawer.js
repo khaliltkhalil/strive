@@ -44,6 +44,9 @@ function Drawer() {
           <Route exact path="/workouts/:id">
             <WorkoutDetails />
           </Route>
+          <Route exact path="/workouts/add">
+            <AddWorkout />
+          </Route>
         </Switch>
       </div>
       <div className="drawer-side">

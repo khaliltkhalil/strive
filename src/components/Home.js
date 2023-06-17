@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { AppContext } from "../context/appContext";
+
 function Home() {
   const { user, setUser } = useContext(AppContext);
 

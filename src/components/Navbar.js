@@ -1,13 +1,14 @@
 import React from "react";
 import { GrAdd } from "react-icons/gr";
+import { Link } from "react-router-dom";
 function Navbar() {
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1"></div>
       <div className="flex-none gap-2">
-        <button className="btn btn-circle">
+        <Link className="btn btn-circle">
           <GrAdd className="text-lg" />
-        </button>
+        </Link>
 
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
