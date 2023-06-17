@@ -38,14 +38,14 @@ function Drawer() {
           <Route exact path="/profile">
             <h1>Profile</h1>
           </Route>
+          <Route path="/workouts/add">
+            <AddWorkout />
+          </Route>
           <Route exact path="/workouts">
             <Workouts />
           </Route>
           <Route exact path="/workouts/:id">
             <WorkoutDetails />
-          </Route>
-          <Route exact path="/workouts/add">
-            <AddWorkout />
           </Route>
         </Switch>
       </div>
