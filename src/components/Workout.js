@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Exercise from "./Exercise";
+import Set from "./Set";
 
 function Workout() {
   const [isLoading, setIsLoading] = useState(true);
   const [workout, setWorkout] = useState({});
   const [exercises, setExercises] = useState([]);
+  const [sets, setSets] = useState([]);
+  const [currentSetId, setCurrentSetId] = useState("");
+  const [currWorkoutId, setCurrWorkoutId] = useState("");
   const [exercise, setExercise] = useState({
     name: "",
     weight: 0,
@@ -106,6 +110,8 @@ function Workout() {
   const renderedExercises = exercises.map((exercise) => (
     <Exercise key={exercise.id} exercise={exercise} />
   ));
+
+  const renderedSets = sets.map((set, index) => <Set key={index} set={set} />);
   return (
     <div className="flex flex-col gap-2 items-center">
       <h1 className="text-lg">{workout.date}</h1>
@@ -159,6 +165,9 @@ function Workout() {
               <button className="btn btn-primary">Add Set</button>
             </div>
           </form>
+          <section className="w-1/2 flex flex-col gap-1">
+            {renderedSets}
+          </section>
         </div>
       </div>
       <div>
