@@ -3,11 +3,14 @@
     {
       "id": 1,
       "date": "Tuesday, Jan 13, 2023"
-      
     },
     {
       "date": "Sunday, June 18, 2023",
       "id": 3
+    },
+    {
+      "date": "Monday, June 19, 2023",
+      "id": 4
     }
   ],
   "exercises": [

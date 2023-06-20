@@ -3,6 +3,18 @@ import React, { useEffect, useState } from "react";
 function AddWorkout() {
   const [workout, setworkout] = useState({});
   const [exercises, setExercises] = useState([]);
+  const [exercise, setExercise] = useState({
+    name: "",
+    weight: 0,
+    reps: 0,
+  });
+
+  function handleFormChange(e) {
+    setExercise({
+      ...exercise,
+      [e.target.name]: e.target.value,
+    });
+  }
 
   useEffect(() => {
     const date = new Date().toLocaleString("en-US", {
@@ -11,7 +23,7 @@ function AddWorkout() {
       month: "long",
       day: "numeric",
     });
-    // send GET request to get nay workout on today's date
+    // send GET request to get any workout on today's date
     fetch(`http://localhost:3000/workouts/?date=${date}`)
       .then((res) => res.json())
       .then((data) => {
@@ -58,6 +70,8 @@ function AddWorkout() {
                   name="name"
                   placeholder="Type here"
                   className="input input-bordered w-full max-w-xs"
+                  onChange={handleFormChange}
+                  value={exercise.name}
                 />
               </section>
 
@@ -67,9 +81,11 @@ function AddWorkout() {
                 </label>
                 <input
                   type="number"
-                  name="name"
+                  name="weight"
                   placeholder=""
                   className="input input-bordered w-1/3 max-w-xs"
+                  onChange={handleFormChange}
+                  value={exercise.weight}
                 />
                 <label className="label"> lbs</label>
               </section>
@@ -79,9 +95,11 @@ function AddWorkout() {
                 </label>
                 <input
                   type="number"
-                  name="name"
+                  name="reps"
                   placeholder=""
                   className="input input-bordered w-1/3 max-w-xs"
+                  value={exercise.reps}
+                  onChange={handleFormChange}
                 />
               </section>
             </div>
