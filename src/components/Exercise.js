@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Set from "./Set";
 
 function Exercise({ exercise }) {
-  const renderedSets = exercise.sets.map((set, index) => (
-    <Set key={index} set={set} />
-  ));
+  const [sets, setSets] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:3000/sets/?exerciseId=${exercise.id}`)
+      .then((res) => res.json())
+      .then((sets) => {
+        setSets(sets);
+      });
+  }, []);
+  const renderedSets = sets.map((set) => <Set key={set.id} set={set} />);
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
       <div className="card-body">

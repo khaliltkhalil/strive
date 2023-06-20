@@ -9,7 +9,7 @@ function Workout() {
   const [exercises, setExercises] = useState([]);
   const [sets, setSets] = useState([]);
   const [currentSetId, setCurrentSetId] = useState("");
-  const [currWorkoutId, setCurrWorkoutId] = useState("");
+  const [currExerciseId, setCurrExerciseId] = useState("");
   const [exercise, setExercise] = useState({
     name: "",
     weight: 0,
@@ -22,6 +22,45 @@ function Workout() {
       ...exercise,
       [e.target.name]: e.target.value,
     });
+  }
+
+  function handleAddSet() {
+    // if there is no exercise, start a new exercise
+    if (!exercise.name) {
+      return;
+    }
+    if (!currExerciseId) {
+      fetch(`http://localhost:3000/exercises/`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: exercise.name,
+          workoutId: workout.id,
+        }),
+      })
+        .then((res) => res.json())
+        .then((createdExercise) => {
+          setCurrExerciseId(createdExercise.id);
+        });
+    }
+
+    fetch(`http://localhost:3000/sets/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        weight: exercise.weight,
+        reps: exercise.reps,
+        exerciseId: currExerciseId,
+      }),
+    })
+      .then((res) => res.json())
+      .then((createdSet) => {
+        setSets([...sets, createdSet]);
+      });
   }
 
   function handleFormSubmit(e) {
