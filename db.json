@@ -1,16 +1,16 @@
 {
   "workouts": [
     {
-      "id": 1,
-      "date": "Tuesday, Jan 13, 2023"
-    },
-    {
       "date": "Sunday, June 18, 2023",
-      "id": 3
+      "id": 1
     },
     {
       "date": "Monday, June 19, 2023",
-      "id": 4
+      "id": 2
+    },
+    {
+      "date": "Tuesday, June 20, 2023",
+      "id": 5
     }
   ],
   "exercises": [
@@ -49,15 +49,42 @@
       "workoutId": 1
     },
     {
-      "id": 3,
+      "name": "Back Row",
+      "sets": [
+        {
+          "weight": "120",
+          "reps": "6"
+        },
+        {
+          "weight": "120",
+          "reps": "6"
+        },
+        {
+          "weight": "116",
+          "reps": "3"
+        },
+        {
+          "weight": "110",
+          "reps": "3"
+        }
+      ],
+      "workoutId": 5,
+      "id": 3
+    },
+    {
       "name": "Pull Ups",
       "sets": [
         {
-          "weight": 0,
-          "reps": 4
+          "weight": "0",
+          "reps": "7"
+        },
+        {
+          "weight": "0",
+          "reps": "11"
         }
       ],
-      "workoutId": 2
+      "workoutId": 5,
+      "id": 4
     }
   ],
   "exercisesTypes": [
