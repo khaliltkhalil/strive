@@ -66,6 +66,14 @@
         {
           "weight": "110",
           "reps": "3"
+        },
+        {
+          "weight": "100",
+          "reps": "11"
+        },
+        {
+          "weight": "111",
+          "reps": "3"
         }
       ],
       "workoutId": 5,
@@ -85,6 +93,32 @@
       ],
       "workoutId": 5,
       "id": 4
+    },
+    {
+      "name": "Back Row",
+      "sets": [
+        {
+          "weight": "119",
+          "reps": "7"
+        },
+        {
+          "weight": "119",
+          "reps": "7"
+        }
+      ],
+      "workoutId": 1,
+      "id": 5
+    },
+    {
+      "name": "Back Row",
+      "sets": [
+        {
+          "weight": "11",
+          "reps": "14"
+        }
+      ],
+      "workoutId": 2,
+      "id": 6
     }
   ],
   "exercisesTypes": [

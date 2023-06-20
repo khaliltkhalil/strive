@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AppContext } from "../context/appContext";
-import Workout from "./Workout";
+import WorkoutCard from "./WorkoutCard";
 import Filter from "./Filter";
 function Workouts() {
   const [workouts, setWorkouts] = useState([]);
@@ -17,7 +17,7 @@ function Workouts() {
   }, []);
 
   const renderedWorkouts = workouts.map((workout) => (
-    <Workout key={workout.id} workout={workout} />
+    <WorkoutCard key={workout.id} workout={workout} />
   ));
 
   if (isLoading) {

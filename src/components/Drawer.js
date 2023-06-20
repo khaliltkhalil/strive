@@ -3,8 +3,8 @@ import Navbar from "./Navbar";
 import { Switch, Route, NavLink } from "react-router-dom";
 import Home from "./Home";
 import Workouts from "./Workouts";
-import AddWorkout from "./AddWorkout";
-import WorkoutDetails from "./WorkoutDetails";
+import AddWorkout from "./Workout";
+import Workout from "./Workout";
 
 function Drawer() {
   return (
@@ -45,7 +45,7 @@ function Drawer() {
             <Workouts />
           </Route>
           <Route exact path="/workouts/:id">
-            <WorkoutDetails />
+            <Workout />
           </Route>
         </Switch>
       </div>
