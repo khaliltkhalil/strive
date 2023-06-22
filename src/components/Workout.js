@@ -24,42 +24,26 @@ function Workout() {
     });
   }
 
-  function handleAddSet() {
+  function handleAddExercise(e) {
+    e.preventDefault();
     // if there is no exercise, start a new exercise
     if (!exercise.name) {
       return;
     }
-    if (!currExerciseId) {
-      fetch(`http://localhost:3000/exercises/`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: exercise.name,
-          workoutId: workout.id,
-        }),
-      })
-        .then((res) => res.json())
-        .then((createdExercise) => {
-          setCurrExerciseId(createdExercise.id);
-        });
-    }
 
-    fetch(`http://localhost:3000/sets/`, {
+    fetch(`http://localhost:3000/exercises/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        weight: exercise.weight,
-        reps: exercise.reps,
-        exerciseId: currExerciseId,
+        name: exercise.name,
+        workoutId: workout.id,
       }),
     })
       .then((res) => res.json())
-      .then((createdSet) => {
-        setSets([...sets, createdSet]);
+      .then((createdExercise) => {
+        setExercises([createdExercise, ...exercises]);
       });
   }
 
@@ -156,7 +140,7 @@ function Workout() {
       <h1 className="text-lg">{workout.date}</h1>
       <div className="card w-96 bg-base-100 shadow-xl">
         <div className="card-body">
-          <form className="flex flex-col gap-2" onSubmit={handleFormSubmit}>
+          <form className="flex flex-col gap-2" onSubmit={handleAddSet}>
             <div className="form-control w-full max-w-xs gap-4">
               <section>
                 <label className="label">
@@ -171,6 +155,9 @@ function Workout() {
                   value={exercise.name}
                 />
               </section>
+              <div className="card-actions justify-end">
+                <button className="btn btn-primary">Add Exercise</button>
+              </div>
 
               <section className="flex gap-2">
                 <label className="label">
@@ -186,6 +173,7 @@ function Workout() {
                 />
                 <label className="label"> lbs</label>
               </section>
+
               <section className="flex gap-2">
                 <label className="label">
                   <span className="label-text">Reps:</span>

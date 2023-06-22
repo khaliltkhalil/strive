@@ -17,13 +17,11 @@
     {
       "id": 1,
       "name": "Bench Press",
-      
       "workoutId": 1
     },
     {
       "id": 2,
       "name": "Over Head Press",
-      
       "workoutId": 1
     },
     {
@@ -45,37 +43,60 @@
       "name": "Back Row",
       "workoutId": 2,
       "id": 6
+    },
+    {
+      "name": "Back Row",
+      "workoutId": 5,
+      "id": 7
+    },
+    {
+      "name": "Back Row",
+      "workoutId": 5,
+      "id": 8
+    },
+    {
+      "name": "Back Row",
+      "workoutId": 5,
+      "id": 9
+    },
+    {
+      "name": "Back Row",
+      "workoutId": 5,
+      "id": 10
+    },
+    {
+      "name": "Back Row",
+      "workoutId": 5,
+      "id": 11
     }
   ],
-  
   "sets": [
-      {
-        "weight": 150,
-        "reps": 4,
-        "exerciseId": 1
-      },
-      {
-        "weight": 150,
-        "reps": 4,
-        "exerciseId": 1
-      },
-      {
-         "weight": 100,
-          "reps": 8,
-          "exerciseId": 2
-      },
-      {
-            "weight": 110,
-            "reps": 8,
-            "exerciseId": 2
-      },
-      {
-        "weight": 100,
-        "reps": 8,
-        "exerciseId": 2
-      }
-    ],
-
+    {
+      "weight": 150,
+      "reps": 4,
+      "exerciseId": 1
+    },
+    {
+      "weight": 150,
+      "reps": 4,
+      "exerciseId": 1
+    },
+    {
+      "weight": 100,
+      "reps": 8,
+      "exerciseId": 2
+    },
+    {
+      "weight": 110,
+      "reps": 8,
+      "exerciseId": 2
+    },
+    {
+      "weight": 100,
+      "reps": 8,
+      "exerciseId": 2
+    }
+  ],
   "exercisesTypes": [
     "bench press",
     "squat"
