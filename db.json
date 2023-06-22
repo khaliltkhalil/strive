@@ -70,22 +70,10 @@
   ],
   "sets": [
     {
-      "weight": "70",
-      "reps": "6",
+      "weight": "110",
+      "reps": "70",
       "exerciseId": "9",
-      "id": 1
-    },
-    {
-      "weight": "120",
-      "reps": "5",
-      "exerciseId": "9",
-      "id": 2
-    },
-    {
-      "weight": "222",
-      "reps": "12",
-      "exerciseId": "9",
-      "id": 3
+      "id": 4
     }
   ],
   "exercisesTypes": [

@@ -82,6 +82,22 @@ function Exercise() {
       });
   }
 
+  function handleDeleteSet(e) {
+    e.preventDefault();
+    fetch(`http://localhost:3000/sets/${currentSetId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then(() => {
+        const updatedSet = sets.filter((set) => set.id !== currentSetId);
+        setSets(updatedSet);
+        setCurrentSetId("");
+      });
+  }
+
   useEffect(() => {
     fetch(`http://localhost:3000/sets?exerciseId=${exerciseId}`)
       .then((res) => res.json())
@@ -127,7 +143,7 @@ function Exercise() {
 
   const DeleteUpdateButtons = (
     <div className="card-actions justify-end">
-      <button className="btn btn-secondary" onClick={handleAddSet}>
+      <button className="btn btn-secondary" onClick={handleDeleteSet}>
         Delete
       </button>
       <button className="btn btn-accent" onClick={handleUpdateSet}>
