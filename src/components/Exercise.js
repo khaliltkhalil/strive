@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Set from "./Set";
 
 function Exercise() {
   const { workoutId, exerciseId } = useParams();
@@ -19,7 +20,36 @@ function Exercise() {
     });
   }
 
-  function handleAddSet() {}
+  function handleAddSet(e) {
+    e.preventDefault();
+    console.log({
+      ...set,
+      exerciseId,
+    });
+    fetch(`http://localhost:3000/sets/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        ...set,
+        exerciseId,
+      }),
+    })
+      .then((res) => res.json())
+      .then((createdSet) => {
+        setSets([...sets, createdSet]);
+      });
+  }
+
+  useEffect(() => {
+    fetch(`http://localhost:3000/sets?exerciseId=${exerciseId}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setSets(data);
+      });
+  }, []);
+
   useEffect(() => {
     setIsLoading(true);
     fetch(`http://localhost:3000/workouts?id=${workoutId}`)
@@ -38,13 +68,18 @@ function Exercise() {
   if (isLoading) {
     return <div>Loading...</div>;
   }
+  const renderedSets = sets.map((set) => (
+    <div className="card w-96 bg-base-100 p-8 shadow-xl">
+      <Set key={set.index} set={set} />
+    </div>
+  ));
   return (
     <div className="flex flex-col gap-2 items-center">
       <h1 className="text-lg">{workout.date}</h1>
       <div className="card w-96 bg-base-100 shadow-xl">
         <div className="card-body">
           <h1 className="text-lg">{exercise.name}</h1>
-          <form className="flex flex-col gap-2" onSubmit={handleAddSet}>
+          <form className="flex flex-col gap-2">
             <div className="form-control w-full max-w-xs gap-4">
               <section className="flex gap-2">
                 <label className="label">
@@ -76,11 +111,14 @@ function Exercise() {
               </section>
             </div>
             <div className="card-actions justify-end">
-              <button className="btn btn-primary">Add Set</button>
+              <button className="btn btn-primary" onClick={handleAddSet}>
+                Add Set
+              </button>
             </div>
           </form>
         </div>
       </div>
+      {renderedSets}
     </div>
   );
 }

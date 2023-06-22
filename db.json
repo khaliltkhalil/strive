@@ -15,6 +15,10 @@
     {
       "date": "Wednesday, June 21, 2023",
       "id": 6
+    },
+    {
+      "date": "Thursday, June 22, 2023",
+      "id": 7
     }
   ],
   "exercises": [
@@ -57,33 +61,31 @@
       "name": "Bench Press",
       "workoutId": 6,
       "id": 8
+    },
+    {
+      "name": "Back Row",
+      "workoutId": 7,
+      "id": 9
     }
   ],
   "sets": [
     {
-      "weight": 150,
-      "reps": 4,
-      "exerciseId": 1
+      "weight": "120",
+      "reps": "6",
+      "exerciseId": "9",
+      "id": 1
     },
     {
-      "weight": 150,
-      "reps": 4,
-      "exerciseId": 1
+      "weight": "120",
+      "reps": "6",
+      "exerciseId": "9",
+      "id": 2
     },
     {
-      "weight": 100,
-      "reps": 8,
-      "exerciseId": 2
-    },
-    {
-      "weight": 110,
-      "reps": 8,
-      "exerciseId": 2
-    },
-    {
-      "weight": 100,
-      "reps": 8,
-      "exerciseId": 2
+      "weight": "222",
+      "reps": "12",
+      "exerciseId": "9",
+      "id": 3
     }
   ],
   "exercisesTypes": [
