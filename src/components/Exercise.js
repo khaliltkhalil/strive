@@ -21,6 +21,16 @@ function Exercise() {
     });
   }
 
+  function handleBackgroundClick(e) {
+    if (e.target.id === "container") {
+      setSet({
+        weight: 0,
+        reps: 0,
+      });
+      setCurrentSetId("");
+    }
+  }
+
   function handleSetClicked(set) {
     setSet({
       weight: set.weight,
@@ -128,7 +138,11 @@ function Exercise() {
   const renderedButtons = currentSetId ? DeleteUpdateButtons : addSetButton;
 
   return (
-    <div className="flex flex-col gap-2 items-center">
+    <div
+      id="container"
+      className="flex flex-col gap-2 items-center"
+      onClick={handleBackgroundClick}
+    >
       <h1 className="text-lg">{workout.date}</h1>
       <div className="card w-96 bg-base-100 shadow-xl">
         <div className="card-body">

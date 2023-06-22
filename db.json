@@ -71,13 +71,13 @@
   "sets": [
     {
       "weight": "70",
-      "reps": "5",
+      "reps": "6",
       "exerciseId": "9",
       "id": 1
     },
     {
       "weight": "120",
-      "reps": "4",
+      "reps": "5",
       "exerciseId": "9",
       "id": 2
     },
