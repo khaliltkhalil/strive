@@ -21,6 +21,14 @@ function Exercise() {
     });
   }
 
+  function handleSetClicked(set) {
+    setSet({
+      weight: set.weight,
+      reps: set.reps,
+    });
+    setCurrentSetId(set.id);
+  }
+
   function handleAddSet(e) {
     e.preventDefault();
     console.log({
@@ -50,7 +58,7 @@ function Exercise() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ set }),
+      body: JSON.stringify(set),
     })
       .then((res) => res.json())
       .then((updatedSet) => {
@@ -90,7 +98,14 @@ function Exercise() {
   if (isLoading) {
     return <div>Loading...</div>;
   }
-  const renderedSets = sets.map((set) => <SetCard key={set.index} set={set} />);
+  const renderedSets = sets.map((set) => (
+    <SetCard
+      key={set.id}
+      set={set}
+      currentSetID={currentSetId}
+      onClick={handleSetClicked}
+    />
+  ));
 
   const addSetButton = (
     <div className="card-actions justify-end">
@@ -105,7 +120,7 @@ function Exercise() {
       <button className="btn btn-secondary" onClick={handleAddSet}>
         Delete
       </button>
-      <button className="btn btn-accent" onClick={handleAddSet}>
+      <button className="btn btn-accent" onClick={handleUpdateSet}>
         Update
       </button>
     </div>
