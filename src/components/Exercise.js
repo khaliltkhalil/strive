@@ -8,6 +8,7 @@ function Exercise() {
   const [exercise, setExercise] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [sets, setSets] = useState([]);
+  const [currentSetId, setCurrentSetId] = useState("1");
   const [set, setSet] = useState({
     weight: 0,
     reps: 0,
@@ -73,6 +74,27 @@ function Exercise() {
       <Set key={set.index} set={set} />
     </div>
   ));
+
+  const addSetButton = (
+    <div className="card-actions justify-end">
+      <button className="btn btn-primary" onClick={handleAddSet}>
+        Add Set
+      </button>
+    </div>
+  );
+
+  const DeleteUpdateButtons = (
+    <div className="card-actions justify-end">
+      <button className="btn btn-secondary" onClick={handleAddSet}>
+        Delete
+      </button>
+      <button className="btn btn btn-accent" onClick={handleAddSet}>
+        Update
+      </button>
+    </div>
+  );
+  const renderedButtons = currentSetId ? DeleteUpdateButtons : addSetButton;
+
   return (
     <div className="flex flex-col gap-2 items-center">
       <h1 className="text-lg">{workout.date}</h1>
@@ -110,11 +132,7 @@ function Exercise() {
                 />
               </section>
             </div>
-            <div className="card-actions justify-end">
-              <button className="btn btn-primary" onClick={handleAddSet}>
-                Add Set
-              </button>
-            </div>
+            {renderedButtons}
           </form>
         </div>
       </div>
