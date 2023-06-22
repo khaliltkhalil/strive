@@ -5,6 +5,7 @@ import Home from "./Home";
 import Workouts from "./Workouts";
 import AddWorkout from "./Workout";
 import Workout from "./Workout";
+import Exercise from "./Exercise";
 
 function Drawer() {
   return (
@@ -46,6 +47,9 @@ function Drawer() {
           </Route>
           <Route exact path="/workouts/:id">
             <Workout />
+          </Route>
+          <Route exact path="/workouts/:workoutId/exercises/:exerciseId">
+            <Exercise />
           </Route>
         </Switch>
       </div>

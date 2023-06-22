@@ -1,28 +1,84 @@
-import React, { useEffect, useState } from "react";
-import Set from "./Set";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
-function Exercise({ exercise }) {
+function Exercise() {
+  const { workoutId, exerciseId } = useParams();
+  const [workout, setWorkout] = useState({});
+  const [exercise, setExercise] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
   const [sets, setSets] = useState([]);
+  const [set, setSet] = useState({
+    weight: 0,
+    reps: 0,
+  });
 
+  function handleSetChange(e) {
+    setSet({
+      ...set,
+      [e.target.name]: e.target.value,
+    });
+  }
+
+  function handleAddSet() {}
   useEffect(() => {
-    fetch(`http://localhost:3000/sets/?exerciseId=${exercise.id}`)
+    setIsLoading(true);
+    fetch(`http://localhost:3000/workouts?id=${workoutId}`)
       .then((res) => res.json())
-      .then((sets) => {
-        setSets(sets);
+      .then((workoutData) => {
+        setWorkout(workoutData[0]);
+        fetch(`http://localhost:3000/exercises/?id=${exerciseId}`)
+          .then((res) => res.json())
+          .then((exerciseData) => {
+            setExercise(exerciseData[0]);
+            setIsLoading(false);
+          });
       });
-  }, []);
-  const renderedSets = sets.map((set) => <Set key={set.id} set={set} />);
+  }, [workoutId, exerciseId]);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
   return (
-    <div className="card w-96 bg-base-100 shadow-xl">
-      <div className="card-body">
-        <h2 className="card-title border-b-4">{exercise.name}</h2>
-        <div className="h-full flex flex-col justify-between">
-          <section className="w-1/2 flex flex-col gap-1">
-            {renderedSets}
-          </section>
-          <div className="card-actions justify-end">
-            <button className="btn btn-primary">Edit</button>
-          </div>
+    <div className="flex flex-col gap-2 items-center">
+      <h1 className="text-lg">{workout.date}</h1>
+      <div className="card w-96 bg-base-100 shadow-xl">
+        <div className="card-body">
+          <h1 className="text-lg">{exercise.name}</h1>
+          <form className="flex flex-col gap-2" onSubmit={handleAddSet}>
+            <div className="form-control w-full max-w-xs gap-4">
+              <section className="flex gap-2">
+                <label className="label">
+                  <span className="label-text">Weight:</span>
+                </label>
+                <input
+                  type="number"
+                  name="weight"
+                  placeholder=""
+                  className="input input-bordered w-1/3 max-w-xs"
+                  onChange={handleSetChange}
+                  value={set.weight}
+                />
+                <label className="label"> lbs</label>
+              </section>
+
+              <section className="flex gap-2">
+                <label className="label">
+                  <span className="label-text">Reps:</span>
+                </label>
+                <input
+                  type="number"
+                  name="reps"
+                  placeholder=""
+                  className="input input-bordered w-1/3 max-w-xs"
+                  value={set.reps}
+                  onChange={handleSetChange}
+                />
+              </section>
+            </div>
+            <div className="card-actions justify-end">
+              <button className="btn btn-primary">Add Set</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>

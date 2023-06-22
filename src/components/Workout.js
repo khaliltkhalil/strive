@@ -1,33 +1,30 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import Exercise from "./Exercise";
+import { useParams, useHistory } from "react-router-dom";
+import ExerciseCard from "./ExerciseCard";
 import Set from "./Set";
 
 function Workout() {
+  const history = useHistory();
   const [isLoading, setIsLoading] = useState(true);
   const [workout, setWorkout] = useState({});
   const [exercises, setExercises] = useState([]);
-  const [sets, setSets] = useState([]);
-  const [currentSetId, setCurrentSetId] = useState("");
-  const [currExerciseId, setCurrExerciseId] = useState("");
-  const [exercise, setExercise] = useState({
-    name: "",
-    weight: 0,
-    reps: 0,
-  });
+  const [exerciseName, setExerciseName] = useState("");
+
+  // const [exercise, setExercise] = useState({
+  //   name: "",
+  //   weight: 0,
+  //   reps: 0,
+  // });
 
   const { id } = useParams();
-  function handleFormChange(e) {
-    setExercise({
-      ...exercise,
-      [e.target.name]: e.target.value,
-    });
+
+  function handleExerciseNameChange(e) {
+    setExerciseName(e.target.value);
   }
 
   function handleAddExercise(e) {
     e.preventDefault();
-    // if there is no exercise, start a new exercise
-    if (!exercise.name) {
+    if (!exerciseName) {
       return;
     }
 
@@ -37,7 +34,7 @@ function Workout() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name: exercise.name,
+        name: exerciseName,
         workoutId: workout.id,
       }),
     })
@@ -53,12 +50,12 @@ function Workout() {
       .then((res) => res.json())
       .then((data) => {
         setWorkout(data[0]);
+        setIsLoading(false);
       });
     fetch(`http://localhost:3000/exercises/?workoutId=${id}`)
       .then((res) => res.json())
       .then((data) => {
         setExercises(data);
-        setIsLoading(false);
       });
   }, [id]);
 
@@ -67,16 +64,16 @@ function Workout() {
   }
 
   const renderedExercises = exercises.map((exercise) => (
-    <Exercise key={exercise.id} exercise={exercise} />
+    <ExerciseCard key={exercise.id} exercise={exercise} />
   ));
 
-  const renderedSets = sets.map((set, index) => <Set key={index} set={set} />);
+  // const renderedSets = sets.map((set, index) => <Set key={index} set={set} />);
   return (
     <div className="flex flex-col gap-2 items-center">
       <h1 className="text-lg">{workout.date}</h1>
       <div className="card w-96 bg-base-100 shadow-xl">
         <div className="card-body">
-          <form className="flex flex-col gap-2" onSubmit={handleAddSet}>
+          <form className="flex flex-col gap-2" onSubmit={handleAddExercise}>
             <div className="form-control w-full max-w-xs gap-4">
               <section>
                 <label className="label">
@@ -87,15 +84,15 @@ function Workout() {
                   name="name"
                   placeholder="Type here"
                   className="input input-bordered w-full max-w-xs"
-                  onChange={handleFormChange}
-                  value={exercise.name}
+                  onChange={handleExerciseNameChange}
+                  value={exerciseName}
                 />
               </section>
               <div className="card-actions justify-end">
                 <button className="btn btn-primary">Add Exercise</button>
               </div>
 
-              <section className="flex gap-2">
+              {/* <section className="flex gap-2">
                 <label className="label">
                   <span className="label-text">Weight:</span>
                 </label>
@@ -122,15 +119,12 @@ function Workout() {
                   value={exercise.reps}
                   onChange={handleFormChange}
                 />
-              </section>
+              </section> */}
             </div>
-            <div className="card-actions justify-end">
+            {/* <div className="card-actions justify-end">
               <button className="btn btn-primary">Add Set</button>
-            </div>
+            </div> */}
           </form>
-          <section className="w-1/2 flex flex-col gap-1">
-            {renderedSets}
-          </section>
         </div>
       </div>
       <div>

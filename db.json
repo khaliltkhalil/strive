@@ -11,6 +11,10 @@
     {
       "date": "Tuesday, June 20, 2023",
       "id": 5
+    },
+    {
+      "date": "Wednesday, June 21, 2023",
+      "id": 6
     }
   ],
   "exercises": [
@@ -45,29 +49,14 @@
       "id": 6
     },
     {
-      "name": "Back Row",
-      "workoutId": 5,
+      "name": "Chin Ups",
+      "workoutId": 6,
       "id": 7
     },
     {
-      "name": "Back Row",
-      "workoutId": 5,
+      "name": "Bench Press",
+      "workoutId": 6,
       "id": 8
-    },
-    {
-      "name": "Back Row",
-      "workoutId": 5,
-      "id": 9
-    },
-    {
-      "name": "Back Row",
-      "workoutId": 5,
-      "id": 10
-    },
-    {
-      "name": "Back Row",
-      "workoutId": 5,
-      "id": 11
     }
   ],
   "sets": [
