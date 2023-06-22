@@ -43,72 +43,8 @@ function Workout() {
     })
       .then((res) => res.json())
       .then((createdExercise) => {
-        setExercises([createdExercise, ...exercises]);
+        history.push(`/workouts/${id}/exercises/${createdExercise.id}`);
       });
-  }
-
-  function handleFormSubmit(e) {
-    e.preventDefault();
-    if (!exercise.name) {
-      return;
-    }
-    //check if there is already an exercise for this workout
-    console.log(exercises);
-    const currentExercise = exercises.find(
-      (exerciseItem) => exercise.name === exerciseItem.name
-    );
-    console.log(currentExercise);
-    if (!currentExercise) {
-      // send a post request to create the exersise
-      fetch(`http://localhost:3000/exercises/`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: exercise.name,
-          sets: [
-            {
-              weight: exercise.weight,
-              reps: exercise.reps,
-            },
-          ],
-          workoutId: workout.id,
-        }),
-      })
-        .then((res) => res.json())
-        .then((createdExercise) => {
-          setExercises([createdExercise, ...exercises]);
-        });
-    } else {
-      //  send a patch request to update the exercise
-      fetch(`http://localhost:3000/exercises/${currentExercise.id}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          sets: [
-            ...currentExercise.sets,
-            {
-              weight: exercise.weight,
-              reps: exercise.reps,
-            },
-          ],
-        }),
-      })
-        .then((res) => res.json())
-        .then((updatedExercise) => {
-          setExercises(
-            exercises.map((exerciseItem) => {
-              if (exerciseItem.id == currentExercise.id) {
-                return updatedExercise;
-              }
-              return exerciseItem;
-            })
-          );
-        });
-    }
   }
 
   useEffect(() => {
