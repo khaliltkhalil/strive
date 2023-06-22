@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Set from "./Set";
+import SetCard from "./SetCard";
 
 function Exercise() {
   const { workoutId, exerciseId } = useParams();
@@ -8,7 +8,7 @@ function Exercise() {
   const [exercise, setExercise] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [sets, setSets] = useState([]);
-  const [currentSetId, setCurrentSetId] = useState("1");
+  const [currentSetId, setCurrentSetId] = useState("");
   const [set, setSet] = useState({
     weight: 0,
     reps: 0,
@@ -43,6 +43,27 @@ function Exercise() {
       });
   }
 
+  function handleUpdateSet(e) {
+    e.preventDefault();
+    fetch(`http://localhost:3000/sets/${currentSetId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ set }),
+    })
+      .then((res) => res.json())
+      .then((updatedSet) => {
+        const updatedSets = sets.map((set) => {
+          if (set.id == updatedSet.id) {
+            return updatedSet;
+          }
+          return set;
+        });
+        setSets(updatedSets);
+      });
+  }
+
   useEffect(() => {
     fetch(`http://localhost:3000/sets?exerciseId=${exerciseId}`)
       .then((res) => res.json())
@@ -69,11 +90,7 @@ function Exercise() {
   if (isLoading) {
     return <div>Loading...</div>;
   }
-  const renderedSets = sets.map((set) => (
-    <div className="card w-96 bg-base-100 p-8 shadow-xl">
-      <Set key={set.index} set={set} />
-    </div>
-  ));
+  const renderedSets = sets.map((set) => <SetCard key={set.index} set={set} />);
 
   const addSetButton = (
     <div className="card-actions justify-end">
@@ -88,7 +105,7 @@ function Exercise() {
       <button className="btn btn-secondary" onClick={handleAddSet}>
         Delete
       </button>
-      <button className="btn btn btn-accent" onClick={handleAddSet}>
+      <button className="btn btn-accent" onClick={handleAddSet}>
         Update
       </button>
     </div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Set from "./Set";
+import Set from "./SetCard";
 
 function ExerciseCard({ exercise }) {
   const [sets, setSets] = useState([]);
