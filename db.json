@@ -23,63 +23,57 @@
   ],
   "exercises": [
     {
-      "id": 1,
-      "name": "Bench Press",
-      "workoutId": 1
-    },
-    {
-      "id": 2,
-      "name": "Over Head Press",
-      "workoutId": 1
-    },
-    {
       "name": "Back Row",
-      "workoutId": 5,
-      "id": 3
-    },
-    {
-      "name": "Pull Ups",
-      "workoutId": 5,
-      "id": 4
-    },
-    {
-      "name": "Back Row",
-      "workoutId": 1,
-      "id": 5
+      "workoutId": 7,
+      "id": 1
     },
     {
       "name": "Back Row",
       "workoutId": 2,
-      "id": 6
-    },
-    {
-      "name": "Chin Ups",
-      "workoutId": 6,
-      "id": 7
+      "id": 2
     },
     {
       "name": "Bench Press",
-      "workoutId": 6,
-      "id": 8
-    },
-    {
-      "name": "Back Row",
-      "workoutId": 7,
-      "id": 9
+      "workoutId": 2,
+      "id": 3
     }
   ],
   "sets": [
     {
-      "weight": "8",
-      "reps": "6",
-      "exerciseId": "2",
-      "id": 7
+      "weight": "110",
+      "reps": "5",
+      "exerciseId": "1",
+      "id": 1
     },
     {
       "weight": "110",
+      "reps": "3",
+      "exerciseId": "1",
+      "id": 2
+    },
+    {
+      "weight": "5",
+      "reps": "12",
+      "exerciseId": "2",
+      "id": 3
+    },
+    {
+      "weight": "5",
+      "reps": "12",
+      "exerciseId": "2",
+      "id": 4
+    },
+    {
+      "weight": "120",
       "reps": "4",
-      "exerciseId": "9",
-      "id": 8
+      "exerciseId": "3",
+      "id": 5
+    },
+    {
+      "weight": "120",
+      "reps": "4",
+      "exerciseId": "3",
+      "id": 6
     }
   ],
   "exercisesTypes": [

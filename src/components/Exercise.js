@@ -158,7 +158,7 @@ function Exercise() {
       <h1 className="text-lg">{workout.date}</h1>
       <div className="card w-96 bg-base-100 shadow-xl">
         <div className="card-body">
-          <h1 className="text-lg">{exercise.name}</h1>
+          <h1 className="text-lg border-b-4">{exercise.name}</h1>
           <form className="flex flex-col gap-2">
             <div className="form-control w-full max-w-xs gap-4">
               <section className="flex gap-2">
