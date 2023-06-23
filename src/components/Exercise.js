@@ -41,10 +41,6 @@ function Exercise() {
 
   function handleAddSet(e) {
     e.preventDefault();
-    console.log({
-      ...set,
-      exerciseId,
-    });
     fetch(`http://localhost:3000/sets/`, {
       method: "POST",
       headers: {

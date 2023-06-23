@@ -44,6 +44,22 @@ function Workout() {
       });
   }
 
+  function handleDeleteExercise(exerciseId) {
+    fetch(`http://localhost:3000/exercises/${exerciseId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then(() => {
+        const updatedExercises = exercises.filter(
+          (exercise) => exercise.id !== exerciseId
+        );
+        setExercises(updatedExercises);
+      });
+  }
+
   useEffect(() => {
     setIsLoading(true);
     fetch(`http://localhost:3000/workouts?id=${id}`)
@@ -64,7 +80,11 @@ function Workout() {
   }
 
   const renderedExercises = exercises.map((exercise) => (
-    <ExerciseCard key={exercise.id} exercise={exercise} />
+    <ExerciseCard
+      key={exercise.id}
+      exercise={exercise}
+      onDeleteClick={handleDeleteExercise}
+    />
   ));
 
   // const renderedSets = sets.map((set, index) => <Set key={index} set={set} />);
