@@ -6,9 +6,22 @@ function Workouts() {
   const [workouts, setWorkouts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchInput, setSearchInput] = useState("");
+  const [sort, setSort] = useState("Recent");
 
   function handleSearchInputChange(e) {
     setSearchInput(e.target.value);
+  }
+
+  function handleSortChange(e) {
+    setSort(e.target.value);
+  }
+
+  function sortDescending(a, b) {
+    return new Date(a.date) - new Date(b.date);
+  }
+
+  function sortAscending(a, b) {
+    return new Date(b.date) - new Date(a.date);
   }
 
   useEffect(() => {
@@ -36,15 +49,24 @@ function Workouts() {
       )
     );
   });
+
+  let compareFunction = sortAscending;
+  if (sort === "Oldest") {
+    compareFunction = sortDescending;
+  }
+
+  filteredWorkouts.sort(compareFunction);
   const renderedWorkouts = filteredWorkouts.map((workout) => (
     <WorkoutCard key={workout.id} workout={workout} />
   ));
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-8">
       <Filter
         searchInput={searchInput}
         onSearchChange={handleSearchInputChange}
+        sort={sort}
+        onSortChange={handleSortChange}
       />
       <div className="flex flex-wrap gap-2 w-full">{renderedWorkouts}</div>
     </div>

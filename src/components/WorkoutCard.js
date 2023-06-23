@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function WorkoutCard({ workout }) {
   const renderedExercises = workout.exercises.map((exercise) => (
-    <li>{exercise.name}</li>
+    <li key={exercise.id}>{exercise.name}</li>
   ));
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
