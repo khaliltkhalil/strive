@@ -13,7 +13,8 @@ function Workouts() {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch("http://localhost:3000/workouts")
+    // get all workouts and includes the exercises
+    fetch("http://localhost:3000/workouts?_embed=exercises")
       .then((res) => res.json())
       .then((data) => {
         setWorkouts(data);
@@ -25,9 +26,16 @@ function Workouts() {
     return <div>Loading Workouts...</div>;
   }
 
-  const filteredWorkouts = workouts.filter((workout) =>
-    workout.date.toLowerCase().includes(searchInput.toLocaleLowerCase())
-  );
+  const filteredWorkouts = workouts.filter((workout) => {
+    const searchValue = searchInput.toLowerCase().trim();
+    // check if any workout date or exercises name match searchValue
+    return (
+      workout.date.toLowerCase().includes(searchValue) ||
+      workout.exercises.some((exercise) =>
+        exercise.name.toLowerCase().includes(searchValue)
+      )
+    );
+  });
   const renderedWorkouts = filteredWorkouts.map((workout) => (
     <WorkoutCard key={workout.id} workout={workout} />
   ));

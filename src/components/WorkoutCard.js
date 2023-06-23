@@ -2,16 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 function WorkoutCard({ workout }) {
-  const [exercises, setExercises] = useState([]);
-
-  useEffect(() => {
-    fetch(`http://localhost:3000/Exercises/?workoutId=${workout.id}`)
-      .then((res) => res.json())
-      .then((exercisesData) => {
-        setExercises(exercisesData);
-      });
-  }, []);
-  const renderedExercises = exercises.map((exercise) => (
+  const renderedExercises = workout.exercises.map((exercise) => (
     <li>{exercise.name}</li>
   ));
   return (
