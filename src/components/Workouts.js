@@ -5,6 +5,11 @@ import Filter from "./Filter";
 function Workouts() {
   const [workouts, setWorkouts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [searchInput, setSearchInput] = useState("");
+
+  function handleSearchInputChange(e) {
+    setSearchInput(e.target.value);
+  }
 
   useEffect(() => {
     setIsLoading(true);
@@ -16,17 +21,23 @@ function Workouts() {
       });
   }, []);
 
-  const renderedWorkouts = workouts.map((workout) => (
-    <WorkoutCard key={workout.id} workout={workout} />
-  ));
-
   if (isLoading) {
     return <div>Loading Workouts...</div>;
   }
 
+  const filteredWorkouts = workouts.filter((workout) =>
+    workout.date.toLowerCase().includes(searchInput.toLocaleLowerCase())
+  );
+  const renderedWorkouts = filteredWorkouts.map((workout) => (
+    <WorkoutCard key={workout.id} workout={workout} />
+  ));
+
   return (
-    <div>
-      <Filter />
+    <div className="flex flex-col gap-4">
+      <Filter
+        searchInput={searchInput}
+        onSearchChange={handleSearchInputChange}
+      />
       <div className="flex flex-wrap gap-2 w-full">{renderedWorkouts}</div>
     </div>
   );
