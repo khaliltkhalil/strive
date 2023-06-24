@@ -43,6 +43,7 @@ function Drawer() {
       });
   }, []);
 
+  if (isLoading) return <h1>Loading...</h1>;
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -69,7 +70,7 @@ function Drawer() {
         <Navbar />
         <Switch>
           <Route exact path="/">
-            <Home user={user} />
+            <Home user={user} workouts={workouts} />
           </Route>
           <Route exact path="/profile">
             <Profile user={user} onSubmit={handleProfileSubmit} />
