@@ -50,6 +50,11 @@
       "name": "Back Row",
       "workoutId": 8,
       "id": 5
+    },
+    {
+      "name": "Back Row",
+      "workoutId": 5,
+      "id": 6
     }
   ],
   "sets": [
@@ -106,6 +111,18 @@
       "reps": 0,
       "exerciseId": "5",
       "id": 10
+    },
+    {
+      "weight": "4",
+      "reps": "1",
+      "exerciseId": "6",
+      "id": 11
+    },
+    {
+      "weight": "4",
+      "reps": "1",
+      "exerciseId": "6",
+      "id": 12
     }
   ],
   "users": [

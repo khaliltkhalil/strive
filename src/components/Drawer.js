@@ -7,6 +7,7 @@ import AddWorkout from "./Workout";
 import Workout from "./Workout";
 import Exercise from "./Exercise";
 import Profile from "./Profile";
+import logo from "../images/logo.png";
 
 function Drawer() {
   const [user, setUser] = useState({});
@@ -68,7 +69,7 @@ function Drawer() {
         <Navbar />
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Home user={user} />
           </Route>
           <Route exact path="/profile">
             <Profile user={user} onSubmit={handleProfileSubmit} />
@@ -91,7 +92,9 @@ function Drawer() {
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
           {/* Sidebar content here */}
-
+          <div className="w-24 mb-2">
+            <img src={logo}></img>
+          </div>
           <li>
             <NavLink exact to="/">
               Home

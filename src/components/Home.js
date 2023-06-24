@@ -1,13 +1,12 @@
 import React, { useContext } from "react";
-import { AppContext } from "../context/appContext";
 
-function Home() {
-  const { user, setUser } = useContext(AppContext);
-
+function Home({ user }) {
   return (
-    <div>
-      <h1>Home</h1>
-      <h1>{user.firstName}</h1>
+    <div className="flex flex-col items-center">
+      <h1 className="text-2xl">Welcome, {user.firstName}</h1>
+      <section>
+        <h1>{user.firstName}</h1>
+      </section>
     </div>
   );
 }
