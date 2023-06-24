@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import { Switch, Route, NavLink } from "react-router-dom";
 import Home from "./Home";
@@ -6,8 +6,42 @@ import Workouts from "./Workouts";
 import AddWorkout from "./Workout";
 import Workout from "./Workout";
 import Exercise from "./Exercise";
+import Profile from "./Profile";
 
 function Drawer() {
+  const [user, setUser] = useState({});
+  const [workouts, setWorkouts] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+
+  function handleProfileSubmit(e, formData) {
+    e.preventDefault();
+    fetch(`http://localhost:3000/users/${user.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => res.json())
+      .then((userData) => {
+        setUser(userData);
+      });
+  }
+
+  useEffect(() => {
+    fetch("http://localhost:3000/users/1")
+      .then((res) => res.json())
+      .then((userData) => {
+        setUser(userData);
+        fetch("http://localhost:3000/workouts?_embed=exercises")
+          .then((res) => res.json())
+          .then((workoutData) => {
+            setWorkouts(workoutData);
+            setIsLoading(false);
+          });
+      });
+  }, []);
+
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -37,7 +71,7 @@ function Drawer() {
             <Home />
           </Route>
           <Route exact path="/profile">
-            <h1>Profile</h1>
+            <Profile user={user} onSubmit={handleProfileSubmit} />
           </Route>
           <Route path="/workouts/add">
             <AddWorkout />

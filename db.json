@@ -19,6 +19,10 @@
     {
       "date": "Thursday, June 22, 2023",
       "id": 7
+    },
+    {
+      "date": "Friday, June 23, 2023",
+      "id": 8
     }
   ],
   "exercises": [
@@ -36,6 +40,16 @@
       "name": "Bench Press",
       "workoutId": 2,
       "id": 3
+    },
+    {
+      "name": "Dead Lift",
+      "workoutId": 5,
+      "id": 4
+    },
+    {
+      "name": "Back Row",
+      "workoutId": 8,
+      "id": 5
     }
   ],
   "sets": [
@@ -74,6 +88,35 @@
       "reps": "4",
       "exerciseId": "3",
       "id": 6
+    },
+    {
+      "weight": "140",
+      "reps": "8",
+      "exerciseId": "4",
+      "id": 7
+    },
+    {
+      "weight": "120",
+      "reps": "8",
+      "exerciseId": "4",
+      "id": 8
+    },
+    {
+      "weight": 0,
+      "reps": 0,
+      "exerciseId": "5",
+      "id": 10
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "firstName": "John",
+      "lastName": "Smith",
+      "currentWeight": "175",
+      "targetedWeight": 180,
+      "currentBodyFat": 15,
+      "targetedBodyFat": 10
     }
   ],
   "exercisesTypes": [
