@@ -20,7 +20,7 @@ function NumberOfWorkoutsChart({ chartData }) {
 
   return (
     <div className="w-full h-64 flex flex-col gap-4">
-      <div className="ml-16">
+      <div className="ml-16 flex items-center">
         <select
           onChange={(e) => setSelectedYear(e.target.value)}
           value={selectedYear}
@@ -29,8 +29,8 @@ function NumberOfWorkoutsChart({ chartData }) {
           {renderYearsList}
         </select>
       </div>
-      <ResponsiveContainer width="100%" height="100%">
-        <BarChart width={400} height={200} data={chartData[selectedYear]}>
+      <ResponsiveContainer width="90%">
+        <BarChart data={chartData[selectedYear]}>
           <Bar dataKey="numOfWorkouts" fill="#8884d8" />
           <XAxis dataKey="month" />
           <YAxis />
