@@ -209,6 +209,12 @@
       "reps": "1",
       "exerciseId": "18",
       "id": 19
+    },
+    {
+      "weight": "32",
+      "reps": "6",
+      "exerciseId": "18",
+      "id": 20
     }
   ],
   "users": [
