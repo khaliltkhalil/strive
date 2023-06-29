@@ -17,7 +17,7 @@ function Navbar({ onAddWorkout }) {
       .then((res) => res.json())
       .then((workoutsList) => {
         // if there is an workout already started, get the id
-        if (workoutsList.length != 0) {
+        if (workoutsList.length !== 0) {
           history.push(`/workouts/${workoutsList[0].id}`);
         } else {
           // create new workout
@@ -50,7 +50,7 @@ function Navbar({ onAddWorkout }) {
         <div className="dropdown dropdown-end z-20">
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full">
-              <img src={logo} />
+              <img src={logo} alt="logo" />
             </div>
           </label>
           <ul
@@ -58,7 +58,7 @@ function Navbar({ onAddWorkout }) {
             className="mt-3 p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
           >
             <li>
-              <a className="justify-between">Profile</a>
+              <Link to="/profile">Profile</Link>
             </li>
           </ul>
         </div>

@@ -69,7 +69,7 @@ function Exercise() {
       .then((res) => res.json())
       .then((updatedSet) => {
         const updatedSets = sets.map((set) => {
-          if (set.id == updatedSet.id) {
+          if (set.id === Number(updatedSet.id)) {
             return updatedSet;
           }
           return set;
@@ -100,7 +100,7 @@ function Exercise() {
       .then((data) => {
         setSets(data);
       });
-  }, []);
+  }, [exerciseId]);
 
   useEffect(() => {
     setIsLoading(true);

@@ -3,7 +3,6 @@ import Navbar from "./Navbar";
 import { Switch, Route, NavLink } from "react-router-dom";
 import Home from "./Home";
 import Workouts from "./Workouts";
-import AddWorkout from "./Workout";
 import Workout from "./Workout";
 import Exercise from "./Exercise";
 import Profile from "./Profile";
@@ -35,7 +34,7 @@ function Drawer() {
 
   function handleUpdateExercise(workoutId, updatedExercises) {
     const updatedWorkouts = workouts.map((workout) => {
-      if (workoutId == workout.id) {
+      if (Number(workoutId) === workout.id) {
         return { ...workout, exercises: updatedExercises };
       } else {
         return workout;
@@ -106,7 +105,7 @@ function Drawer() {
         <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
           {/* Sidebar content here */}
           <div className="w-24 mb-2">
-            <img src={logo}></img>
+            <img src={logo} alt="logo"></img>
           </div>
           <li>
             <NavLink exact to="/">

@@ -1,7 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
 import NumberOfWorkoutsChart from "./NumberOfWorkoutsChart";
 import ExerciseTypesChart from "./ExerciseTypesChart";
-import BarChart from "./BarChart";
 import { createBarChartData, createPieChartData } from "../utils/helper";
 
 function Home({ user, workouts }) {

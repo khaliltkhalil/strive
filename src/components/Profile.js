@@ -20,7 +20,7 @@ function Profile({ user, onSubmit }) {
   return (
     <div className="flex flex-col items-center gap-8">
       <div className="w-96 h-96 rounded-full border-4 border-black-500/50 overflow-hidden">
-        <img src={logo} />
+        <img src={logo} alt="profile" />
       </div>
       <form
         className="flex flex-col gap-4 max-w-xs w-full"

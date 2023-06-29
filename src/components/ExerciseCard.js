@@ -11,7 +11,7 @@ function ExerciseCard({ exercise, onDeleteClick }) {
       .then((sets) => {
         setSets(sets);
       });
-  }, []);
+  }, [exercise.id]);
   const renderedSets = sets.map((set) => <SetRow key={set.id} set={set} />);
   return (
     <div className="card w-96 bg-base-100 shadow-xl">

@@ -1,5 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
-import { AppContext } from "../context/appContext";
+import React, { useEffect, useState } from "react";
 import WorkoutCard from "./WorkoutCard";
 import Filter from "./Filter";
 function Workouts() {

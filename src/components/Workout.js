@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import ExerciseCard from "./ExerciseCard";
-import Set from "./SetCard";
 
 function Workout({ onUpdateExercise }) {
   const history = useHistory();
