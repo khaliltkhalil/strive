@@ -29,6 +29,11 @@ function Drawer() {
       });
   }
 
+  function handleAddWorkout(newWorkout) {
+    console.log(newWorkout);
+    setWorkouts([...workouts, { ...newWorkout, exercises: [] }]);
+  }
+
   useEffect(() => {
     fetch("http://localhost:3000/users/1")
       .then((res) => res.json())
@@ -67,7 +72,7 @@ function Drawer() {
       </label>
       <div className="drawer-content flex flex-col m-5">
         {/* Page content here */}
-        <Navbar />
+        <Navbar onAddWorkout={handleAddWorkout} />
         <Switch>
           <Route exact path="/">
             <Home user={user} workouts={workouts} />

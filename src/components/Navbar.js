@@ -2,7 +2,7 @@ import React from "react";
 import { GrAdd } from "react-icons/gr";
 import { Link, useHistory } from "react-router-dom";
 import logo from "../images/logo.png";
-function Navbar() {
+function Navbar({ onAddWorkout }) {
   const history = useHistory();
   function handleAddWorkout() {
     const date = new Date().toLocaleString("en-US", {
@@ -32,6 +32,7 @@ function Navbar() {
           })
             .then((res) => res.json())
             .then((createdWorkout) => {
+              onAddWorkout(createdWorkout);
               history.push(`/workouts/${createdWorkout.id}`);
             });
         }

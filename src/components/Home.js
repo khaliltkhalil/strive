@@ -5,6 +5,7 @@ import BarChart from "./BarChart";
 import { createBarChartData, createPieChartData } from "../utils/helper";
 
 function Home({ user, workouts }) {
+  console.log(workouts);
   const barChartData = createBarChartData(workouts);
   const PieChartData = createPieChartData(workouts);
 

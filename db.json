@@ -31,6 +31,10 @@
     {
       "date": "Tuesday, June 27, 2023",
       "id": 10
+    },
+    {
+      "date": "Thursday, June 29, 2023",
+      "id": 11
     }
   ],
   "exercises": [
@@ -88,6 +92,11 @@
       "name": "Back Row",
       "workoutId": 10,
       "id": 11
+    },
+    {
+      "name": "Back Row",
+      "workoutId": 10,
+      "id": 12
     }
   ],
   "sets": [
@@ -180,6 +189,12 @@
       "reps": "7",
       "exerciseId": "10",
       "id": 16
+    },
+    {
+      "weight": "120",
+      "reps": "12",
+      "exerciseId": "12",
+      "id": 17
     }
   ],
   "users": [
