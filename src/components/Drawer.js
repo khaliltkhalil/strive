@@ -64,7 +64,7 @@ function Drawer() {
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <label
         htmlFor="my-drawer-2"
-        className="btn btn-square btn-ghost m-2 lg:hidden"
+        className="btn btn-square absolute btn-ghost m-2 lg:hidden"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
