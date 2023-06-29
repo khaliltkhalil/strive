@@ -27,6 +27,10 @@
     {
       "date": "Friday, June 23, 2023",
       "id": 8
+    },
+    {
+      "date": "Tuesday, June 27, 2023",
+      "id": 10
     }
   ],
   "exercises": [
@@ -59,6 +63,31 @@
       "name": "Back Row",
       "workoutId": 5,
       "id": 6
+    },
+    {
+      "name": "Squat",
+      "workoutId": 6,
+      "id": 7
+    },
+    {
+      "name": "Bench Press",
+      "workoutId": 8,
+      "id": 8
+    },
+    {
+      "name": "Bench Press",
+      "workoutId": 8,
+      "id": 9
+    },
+    {
+      "name": "Dead Lift",
+      "workoutId": 5,
+      "id": 10
+    },
+    {
+      "name": "Back Row",
+      "workoutId": 10,
+      "id": 11
     }
   ],
   "sets": [
@@ -127,6 +156,30 @@
       "reps": "1",
       "exerciseId": "6",
       "id": 12
+    },
+    {
+      "weight": "180",
+      "reps": "7",
+      "exerciseId": "7",
+      "id": 13
+    },
+    {
+      "weight": "180",
+      "reps": "7",
+      "exerciseId": "7",
+      "id": 14
+    },
+    {
+      "weight": "4",
+      "reps": "4",
+      "exerciseId": "8",
+      "id": 15
+    },
+    {
+      "weight": "120",
+      "reps": "7",
+      "exerciseId": "10",
+      "id": 16
     }
   ],
   "users": [

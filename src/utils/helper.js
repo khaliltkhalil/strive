@@ -73,4 +73,37 @@ function createBarChartData(workouts) {
   return chartData;
 }
 
-export { createBarChartData };
+function createPieChartData(workouts) {
+  const chartData = {};
+  workouts.forEach((workout) => {
+    const date = new Date(workout.date);
+    const year = date.getFullYear();
+
+    // if year doesnt exist in chartData add it
+    if (!chartData[year]) {
+      chartData[year] = {};
+    }
+
+    workout.exercises.forEach((exercise) => {
+      if (!chartData[year][exercise.name]) {
+        chartData[year][exercise.name] = 1;
+      } else {
+        chartData[year][exercise.name] += 1;
+      }
+    });
+  });
+
+  const finalChartData = {};
+  Object.keys(chartData).forEach((year) => {
+    finalChartData[year] = Object.entries(chartData[year]).map((exer) => {
+      return {
+        name: exer[0],
+        value: exer[1],
+      };
+    });
+  });
+
+  return finalChartData;
+}
+
+export { createBarChartData, createPieChartData };

@@ -13,7 +13,7 @@ function NumberOfWorkoutsChart({ chartData }) {
   //console.log(workouts);
 
   const renderYearsList = Object.keys(chartData).map((year) => (
-    <option key={year} value={year}>
+    <option className="" key={year} value={year}>
       {year}
     </option>
   ));
