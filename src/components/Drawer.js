@@ -90,9 +90,6 @@ function Drawer() {
           <Route exact path="/profile">
             <Profile user={user} onSubmit={handleProfileSubmit} />
           </Route>
-          <Route path="/workouts/add">
-            <AddWorkout />
-          </Route>
           <Route exact path="/workouts">
             <Workouts />
           </Route>

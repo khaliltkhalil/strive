@@ -10,12 +10,6 @@ function Workout({ onUpdateExercise }) {
   const [exercises, setExercises] = useState([]);
   const [exerciseName, setExerciseName] = useState("");
 
-  // const [exercise, setExercise] = useState({
-  //   name: "",
-  //   weight: 0,
-  //   reps: 0,
-  // });
-
   const { id } = useParams();
 
   function handleExerciseNameChange(e) {
@@ -89,7 +83,6 @@ function Workout({ onUpdateExercise }) {
     />
   ));
 
-  // const renderedSets = sets.map((set, index) => <Set key={index} set={set} />);
   return (
     <div className="flex flex-col gap-2 items-center">
       <h1 className="text-lg">{workout.date}</h1>
@@ -114,9 +107,6 @@ function Workout({ onUpdateExercise }) {
                 <button className="btn btn-primary">Add Exercise</button>
               </div>
             </div>
-            {/* <div className="card-actions justify-end">
-              <button className="btn btn-primary">Add Set</button>
-            </div> */}
           </form>
         </div>
       </div>
