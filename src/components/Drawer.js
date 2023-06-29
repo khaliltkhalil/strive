@@ -11,7 +11,7 @@ import logo from "../images/logo.png";
 
 function Drawer() {
   const [user, setUser] = useState({});
-  const [workouts, setWorkouts] = useState({});
+  const [workouts, setWorkouts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   function handleProfileSubmit(e, formData) {
@@ -30,8 +30,18 @@ function Drawer() {
   }
 
   function handleAddWorkout(newWorkout) {
-    console.log(newWorkout);
     setWorkouts([...workouts, { ...newWorkout, exercises: [] }]);
+  }
+
+  function handleUpdateExercise(workoutId, updatedExercises) {
+    const updatedWorkouts = workouts.map((workout) => {
+      if (workoutId == workout.id) {
+        return { ...workout, exercises: updatedExercises };
+      } else {
+        return workout;
+      }
+    });
+    setWorkouts(updatedWorkouts);
   }
 
   useEffect(() => {
@@ -87,7 +97,7 @@ function Drawer() {
             <Workouts />
           </Route>
           <Route exact path="/workouts/:id">
-            <Workout />
+            <Workout onUpdateExercise={handleUpdateExercise} />
           </Route>
           <Route exact path="/workouts/:workoutId/exercises/:exerciseId">
             <Exercise />

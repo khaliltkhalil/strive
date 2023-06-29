@@ -3,7 +3,7 @@ import { useParams, useHistory } from "react-router-dom";
 import ExerciseCard from "./ExerciseCard";
 import Set from "./SetCard";
 
-function Workout() {
+function Workout({ onUpdateExercise }) {
   const history = useHistory();
   const [isLoading, setIsLoading] = useState(true);
   const [workout, setWorkout] = useState({});
@@ -40,6 +40,7 @@ function Workout() {
     })
       .then((res) => res.json())
       .then((createdExercise) => {
+        onUpdateExercise(id, [...exercises, createdExercise]);
         history.push(`/workouts/${id}/exercises/${createdExercise.id}`);
       });
   }
@@ -56,6 +57,7 @@ function Workout() {
         const updatedExercises = exercises.filter(
           (exercise) => exercise.id !== exerciseId
         );
+        onUpdateExercise(id, updatedExercises);
         setExercises(updatedExercises);
       });
   }
@@ -111,35 +113,6 @@ function Workout() {
               <div className="card-actions justify-end">
                 <button className="btn btn-primary">Add Exercise</button>
               </div>
-
-              {/* <section className="flex gap-2">
-                <label className="label">
-                  <span className="label-text">Weight:</span>
-                </label>
-                <input
-                  type="number"
-                  name="weight"
-                  placeholder=""
-                  className="input input-bordered w-1/3 max-w-xs"
-                  onChange={handleFormChange}
-                  value={exercise.weight}
-                />
-                <label className="label"> lbs</label>
-              </section>
-
-              <section className="flex gap-2">
-                <label className="label">
-                  <span className="label-text">Reps:</span>
-                </label>
-                <input
-                  type="number"
-                  name="reps"
-                  placeholder=""
-                  className="input input-bordered w-1/3 max-w-xs"
-                  value={exercise.reps}
-                  onChange={handleFormChange}
-                />
-              </section> */}
             </div>
             {/* <div className="card-actions justify-end">
               <button className="btn btn-primary">Add Set</button>
