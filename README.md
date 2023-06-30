@@ -28,13 +28,13 @@ Add the below variable to .env.development
 REACT_APP_API_URL=http://localhost:3000
 ```
 
-## Usage
-
 Start the server :
 
 ```bash
 npm start
 ```
+
+## Usage
 
 On the home page you will find a summury of all your workouts by year.
 
