@@ -20,6 +20,14 @@ https://github.com/khaliltkhalil/strive-api
 
 Make sure the api is running on port 3000.
 
+Add .env.development file in the root directory.
+
+Add the below variable to .env.development
+
+```
+REACT_APP_API_URL=http://localhost:3000
+```
+
 ## Usage
 
 Start the server :
