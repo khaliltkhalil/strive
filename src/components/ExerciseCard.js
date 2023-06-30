@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import SetRow from "./SetRow";
 import { Link } from "react-router-dom/";
 
+const api_url = process.env.REACT_APP_API_URL;
+
 function ExerciseCard({ exercise, onDeleteClick }) {
   const [sets, setSets] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/sets/?exerciseId=${exercise.id}`)
+    fetch(`${api_url}/sets/?exerciseId=${exercise.id}`)
       .then((res) => res.json())
       .then((sets) => {
         setSets(sets);

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import ExerciseCard from "./ExerciseCard";
 
+const api_url = process.env.REACT_APP_API_URL;
+
 function Workout({ onUpdateExercise }) {
   const history = useHistory();
   const [isLoading, setIsLoading] = useState(true);
@@ -21,7 +23,7 @@ function Workout({ onUpdateExercise }) {
       return;
     }
 
-    fetch(`http://localhost:3000/exercises/`, {
+    fetch(`${api_url}/exercises/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -39,7 +41,7 @@ function Workout({ onUpdateExercise }) {
   }
 
   function handleDeleteExercise(exerciseId) {
-    fetch(`http://localhost:3000/exercises/${exerciseId}`, {
+    fetch(`${api_url}/exercises/${exerciseId}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -57,13 +59,13 @@ function Workout({ onUpdateExercise }) {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(`http://localhost:3000/workouts?id=${id}`)
+    fetch(`${api_url}/workouts?id=${id}`)
       .then((res) => res.json())
       .then((data) => {
         setWorkout(data[0]);
         setIsLoading(false);
       });
-    fetch(`http://localhost:3000/exercises/?workoutId=${id}`)
+    fetch(`${api_url}/exercises/?workoutId=${id}`)
       .then((res) => res.json())
       .then((data) => {
         setExercises(data);

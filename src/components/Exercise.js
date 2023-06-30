@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import SetCard from "./SetCard";
 
+const api_url = process.env.REACT_APP_API_URL;
+
 function Exercise() {
   const { workoutId, exerciseId } = useParams();
   const [workout, setWorkout] = useState({});
@@ -41,7 +43,7 @@ function Exercise() {
 
   function handleAddSet(e) {
     e.preventDefault();
-    fetch(`http://localhost:3000/sets/`, {
+    fetch(`${api_url}/sets/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -59,7 +61,7 @@ function Exercise() {
 
   function handleUpdateSet(e) {
     e.preventDefault();
-    fetch(`http://localhost:3000/sets/${currentSetId}`, {
+    fetch(`${api_url}/sets/${currentSetId}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -80,7 +82,7 @@ function Exercise() {
 
   function handleDeleteSet(e) {
     e.preventDefault();
-    fetch(`http://localhost:3000/sets/${currentSetId}`, {
+    fetch(`${api_url}/sets/${currentSetId}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -95,7 +97,7 @@ function Exercise() {
   }
 
   useEffect(() => {
-    fetch(`http://localhost:3000/sets?exerciseId=${exerciseId}`)
+    fetch(`${api_url}/sets?exerciseId=${exerciseId}`)
       .then((res) => res.json())
       .then((data) => {
         setSets(data);
@@ -104,11 +106,11 @@ function Exercise() {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(`http://localhost:3000/workouts?id=${workoutId}`)
+    fetch(`${api_url}/workouts?id=${workoutId}`)
       .then((res) => res.json())
       .then((workoutData) => {
         setWorkout(workoutData[0]);
-        fetch(`http://localhost:3000/exercises/?id=${exerciseId}`)
+        fetch(`${api_url}/exercises/?id=${exerciseId}`)
           .then((res) => res.json())
           .then((exerciseData) => {
             setExercise(exerciseData[0]);

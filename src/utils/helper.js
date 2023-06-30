@@ -94,6 +94,7 @@ function createPieChartData(workouts) {
   });
 
   const finalChartData = {};
+  // transform data to match the required data in Pie chart
   Object.keys(chartData).forEach((year) => {
     finalChartData[year] = Object.entries(chartData[year]).map((exer) => {
       return {

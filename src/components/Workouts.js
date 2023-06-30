@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import WorkoutCard from "./WorkoutCard";
 import Filter from "./Filter";
+
+const api_url = process.env.REACT_APP_API_URL;
+
 function Workouts() {
   const [workouts, setWorkouts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -26,7 +29,7 @@ function Workouts() {
   useEffect(() => {
     setIsLoading(true);
     // get all workouts and includes the exercises
-    fetch("http://localhost:3000/workouts?_embed=exercises")
+    fetch(`${api_url}/workouts?_embed=exercises`)
       .then((res) => res.json())
       .then((data) => {
         setWorkouts(data);

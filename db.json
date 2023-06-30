@@ -117,6 +117,11 @@
       "name": "Back Row",
       "workoutId": 11,
       "id": 23
+    },
+    {
+      "name": "Back Row",
+      "workoutId": 9,
+      "id": 24
     }
   ],
   "sets": [
@@ -215,6 +220,12 @@
       "reps": "6",
       "exerciseId": "18",
       "id": 20
+    },
+    {
+      "weight": "19",
+      "reps": "3",
+      "exerciseId": "14",
+      "id": 21
     }
   ],
   "users": [

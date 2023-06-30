@@ -2,6 +2,9 @@ import React from "react";
 import { GrAdd } from "react-icons/gr";
 import { Link, useHistory } from "react-router-dom";
 import logo from "../images/logo.png";
+
+const api_url = process.env.REACT_APP_API_URL;
+
 function Navbar({ onAddWorkout }) {
   const history = useHistory();
   function handleAddWorkout() {
@@ -13,7 +16,7 @@ function Navbar({ onAddWorkout }) {
     });
 
     // send GET request to get any workout on today's date
-    fetch(`http://localhost:3000/workouts/?date=${date}`)
+    fetch(`${api_url}/workouts/?date=${date}`)
       .then((res) => res.json())
       .then((workoutsList) => {
         // if there is an workout already started, get the id
@@ -21,7 +24,7 @@ function Navbar({ onAddWorkout }) {
           history.push(`/workouts/${workoutsList[0].id}`);
         } else {
           // create new workout
-          fetch(`http://localhost:3000/workouts/`, {
+          fetch(`${api_url}/workouts/`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

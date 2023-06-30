@@ -10,7 +10,6 @@ import {
 
 function NumberOfWorkoutsChart({ chartData }) {
   const [selectedYear, setSelectedYear] = useState(Object.keys(chartData)[0]);
-  //console.log(workouts);
 
   const renderYearsList = Object.keys(chartData).map((year) => (
     <option className="" key={year} value={year}>

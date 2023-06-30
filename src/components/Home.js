@@ -5,7 +5,7 @@ import { createBarChartData, createPieChartData } from "../utils/helper";
 
 function Home({ user, workouts }) {
   const barChartData = createBarChartData(workouts);
-  const PieChartData = createPieChartData(workouts);
+  const pieChartData = createPieChartData(workouts);
 
   return (
     <div className="flex flex-col items-center gap-16 w-full">
@@ -18,7 +18,7 @@ function Home({ user, workouts }) {
         </section>
         <section className="w-full">
           <h1 className="text-xl text-center mb-4">Exercise Types</h1>
-          <ExerciseTypesChart chartData={PieChartData} />
+          <ExerciseTypesChart chartData={pieChartData} />
         </section>
       </section>
     </div>

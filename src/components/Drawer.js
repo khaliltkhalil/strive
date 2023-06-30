@@ -8,6 +8,8 @@ import Exercise from "./Exercise";
 import Profile from "./Profile";
 import logo from "../images/logo.png";
 
+const api_url = process.env.REACT_APP_API_URL;
+
 function Drawer() {
   const [user, setUser] = useState({});
   const [workouts, setWorkouts] = useState([]);
@@ -44,11 +46,11 @@ function Drawer() {
   }
 
   useEffect(() => {
-    fetch("http://localhost:3000/users/1")
+    fetch(`${api_url}/users/1`)
       .then((res) => res.json())
       .then((userData) => {
         setUser(userData);
-        fetch("http://localhost:3000/workouts?_embed=exercises")
+        fetch(`${api_url}/workouts?_embed=exercises`)
           .then((res) => res.json())
           .then((workoutData) => {
             setWorkouts(workoutData);
