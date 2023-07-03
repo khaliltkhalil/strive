@@ -4,6 +4,10 @@ A platform to track and analyse your workouts.
 
 Strive allows you to keep records of all your workouts routines.
 
+## Live Demo:
+
+https://extraordinary-brioche-d1bce5.netlify.app/
+
 ## Installation
 
 Fork and clone the reposotiray to your local machine.
