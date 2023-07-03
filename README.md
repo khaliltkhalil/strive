@@ -6,7 +6,7 @@ Strive allows you to keep records of all your workouts routines.
 
 ## Live Demo:
 
-strive-app.netlify.app
+https://strive-app.netlify.app
 
 ## Installation
 
